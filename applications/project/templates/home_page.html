@@ -37,8 +37,8 @@
                     Account
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Registration</a></li>
-                        <li><a class="dropdown-item" href="#">Authorization</a></li>
+                        <li><a class="dropdown-item" href="{% url 'register' %}">Registration</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Authorization</a></li>
                     </ul>
                 </li>
                 </ul>
@@ -101,5 +101,26 @@
         <p class="footer__text">Licence №123456789 year 2022.</p>
     </footer>
     <!-- end footer -->
+     <!-- modal for login -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Authorization modal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" placeholder="Enter username...">
+          <input type="password" placeholder="Enter password...">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- end modal -->
 </body>
 </html>

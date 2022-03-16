@@ -1,0 +1,20 @@
+{% extends 'home_page.html' %}
+{% load static %}
+    {% block css_links %}
+    <link rel="stylesheet" href="{% static 'css/register_page.css' %}">
+    {% endblock css_links %}
+
+    {% block content %}
+    <div class="registration-block">
+        <h2 class="registration-block__title">Registration form</h2>
+        <form method="post" class="registration-form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username..." required='true'>
+            <input type="text" name="email" placeholder="Email..." required='true'>
+            <input type="number" name="age" placeholder="Age..." required='true'>
+            <input type="password" name="password" placeholder="Password..." required='true'>
+            <input type="password" name="password_confirmation" placeholder="Password_confirmation..." required='true'>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    {% endblock content %}
