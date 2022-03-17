@@ -54,3 +54,28 @@ footer {
     margin: 1%;
     font-size: 10px;
 }
+
+
+/* modal styles */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.modal-body > input {
+    width: 70%;
+    margin-bottom: 2%;
+    height: 40px;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    transition: 0.8s;
+}
+
+.modal-body > input:focus {
+    background-color: #212529;
+    color: white;
+    transition: 0.8s;
+}
+/* end modal styles */

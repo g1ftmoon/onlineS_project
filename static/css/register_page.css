@@ -1,0 +1,50 @@
+.registration-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration-block__title {
+    font-size: 50px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.registration-form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-form > input {
+    margin-bottom: 2%;
+    height: 50px;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    transition: 0.8s;
+}
+
+.registration-form > input:focus {
+    background-color: #212529;
+    color: white;
+    transition: 0.8s;
+}
+
+.registration-form > button {
+    height: 40px;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: 0.8s;
+}
+.registration-form > button:hover {
+    background-color: #212529;
+    color: white;
+    transition: 0.8s;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;  
+}
