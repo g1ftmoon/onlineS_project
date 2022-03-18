@@ -8,16 +8,16 @@
      <div class="container">
         <div class="product-detail">
             <div class="product-detail__left">
-                <img src="https://www.meme-arsenal.com/memes/92d3f43deea5ac88c41bf39ae71421c2.jpg" alt="" class="product-detail__left-img">
+                <img src="{{ product.image.all.first.image.url}}" alt="" class="product-detail__left-img">
             </div>
             <div class="product-detail__right">
-                <h2 class="right__title">Mobile Phone</h2>
+                <h2 class="right__title">{{ product.title }}</h2>
                 <ul class="right__list">
-                    <li class="right__list-item">Price: 5000$</li>
-                    <li class="right__list-item">Quantity: 15</li>
-                    <li class="right__list-item">Rating: 8</li>
-                    <li class="right__list-item">Category: Samsung</li>
-                    <li class="right__list-item">Country: Korea</li>
+                    <li class="right__list-item">Price: {{ product.price }}</li>
+                    <li class="right__list-item">Quantity: {{ product.quantity }}</li>
+                    <li class="right__list-item">Rating: {{ rating }}</li>
+                    <li class="right__list-item">Category: {{ product.category.title }}</li>
+                    <li class="right__list-item">In stock: {% if product.in_stock %} Product is avilable {% else %} Product is not avilable {% endif %} </li>
                 </ul>
             </div>
         </div>
@@ -25,15 +25,14 @@
         <div class="carousel-data">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://samsungshop.com.ua/res/img/uploads/landing/134320/im_5fff0db74f9c8.jpg" class="d-block w-100 carousel-img" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://www.ixbt.com/img/n1/news/2020/11/1/samsung-galaxy-s21-5g_large.jpg" class="d-block w-100 carousel-img" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkszGNmOvTH7NwO5aEuAZEY4QqLqiALw16Qw&usqp=CAU" class="d-block w-100 carousel-img" alt="...">
-                </div>
+                    <div class="carousel-item active">
+                        <img src="{{ product.image.all.first.image.url }}" class="d-block w-100 carousel-img" alt="...">
+                    </div>
+                    {% for image in carousel_images %}
+                    <div class="carousel-item">
+                        <img src="{{ image.image.url }}" class="d-block w-100 carousel-img" alt="...">
+                    </div>
+                     {% endfor %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

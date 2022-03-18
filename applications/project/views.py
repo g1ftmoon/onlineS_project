@@ -1,7 +1,7 @@
 from django.db.models import Q
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
-from applications.project.models import Product, Category
+from applications.project.models import Product, Category, ProductImage
 
 
 class ProductListView(ListView):
@@ -28,3 +28,15 @@ class ProductListView(ListView):
         return queryset
 
 
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'product_detail.html'
+    context_object_name = 'product'
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data()
+        rating = 0
+        carousel_images = ProductImage.objects.filter(product=self.kwargs['pk'])[1:]
+        context['rating'] = rating
+        context['carousel_images'] = carousel_images
+        return context
