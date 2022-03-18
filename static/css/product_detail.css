@@ -1,3 +1,4 @@
+
 /* product detail styles */
 .product-detail {
     width: 100%;
@@ -19,7 +20,6 @@
     box-shadow: 0 0 35px #BEBEBE;
 }
 /* end left styles */
-
 /* right styles */
 .product-detail__right {
     width: 50%;
@@ -27,67 +27,59 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
 }
-
-/* right title */
 .right__title {
     font-size: 50px;
 }
-
 .right__list {
     list-style-type: none;
     font-size: 40px;
     font-family: 'Lobster', cursive;
 }
-/* end left styles */
-
+/* end right style */
 /* carousel styles */
 .carousel-data {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 5% 0;
+    margin: 5% 0;   
 }
-
 .carousel {
     width: 70%;
     border: 2px solid #A9A9A9 !important;
     border-radius: 10px;
     box-shadow: 0 0 35px #BEBEBE;
 }
-
 .carousel-img {
-    width: 450px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     border-radius: 10px;
 }
-
-/* Reviews style */
+/* end carousel style */
+/* reviews style */
 .reviews-navigation {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 0 2%;
 }
-
 .reviews {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2%;
 }
-
 .card {
     margin: 1%;
     background-color: transparent !important;
-    color: rgb(254,255,255);
+    color: rgb(254, 255, 255);
     border: 2px solid #A9A9A9 !important;
     box-shadow: 5px 5px 5px #BEBEBE;
-
 }
-
 .btn-light:hover {
     box-shadow: 0 0 25px #BEBEBE;
     transition: 0.8s;
 }
-
+/* end reviews style */
 /* end product styles */
