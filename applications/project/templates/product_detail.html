@@ -13,7 +13,7 @@
             <div class="product-detail__right">
                 <h2 class="right__title">{{ product.title }}</h2>
                 <ul class="right__list">
-                    <li class="right__list-item">Price: {{ product.price }}</li>
+                    <li class="right__list-item">Price: {{ product.price }} $</li>
                     <li class="right__list-item">Quantity: {{ product.quantity }}</li>
                     <li class="right__list-item">Rating: {{ rating }}</li>
                     <li class="right__list-item">Category: {{ product.category.title }}</li>
@@ -48,71 +48,48 @@
         <!-- review here -->
         <div class="reviews-navigation">
             <h3 class="review-title">Reviews:</h3>
-            <button class="btn btn-light add-review__btn">Add review</button>
+            <button class="btn btn-light add-review__btn" data-bs-toggle="modal" data-bs-target="#staticBackdropReview" >Add review</button>
         </div>
         <div class="reviews">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <h6 class="card-subtitle mb-2 ">Review title</h6>
-                    <p class="card-text">Detail review</p>
-                    <p class="card-text">Rating: 8</p>
-                    <button class="btn btn-light">Edit</button>
-                    <button class="btn btn-light">Delete</button>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <h6 class="card-subtitle mb-2 ">Review title</h6>
-                    <p class="card-text">Detail review</p>
-                    <p class="card-text">Rating: 8</p>
-                    <button class="btn btn-light">Edit</button>
-                    <button class="btn btn-light">Delete</button>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <h6 class="card-subtitle mb-2 ">Review title</h6>
-                    <p class="card-text">Detail review</p>
-                    <p class="card-text">Rating: 8</p>
-                    <button class="btn btn-light">Edit</button>
-                    <button class="btn btn-light">Delete</button>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <h6 class="card-subtitle mb-2 ">Review title</h6>
-                    <p class="card-text">Detail review</p>
-                    <p class="card-text">Rating: 8</p>
-                    <button class="btn btn-light">Edit</button>
-                    <button class="btn btn-light">Delete</button>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <h6 class="card-subtitle mb-2 ">Review title</h6>
-                    <p class="card-text">Detail review</p>
-                    <p class="card-text">Rating: 8</p>
-                    <button class="btn btn-light">Edit</button>
-                    <button class="btn btn-light">Delete</button>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Username</h5>
-                    <h6 class="card-subtitle mb-2 ">Review title</h6>
-                    <p class="card-text">Detail review</p>
-                    <p class="card-text">Rating: 8</p>
-                    <button class="btn btn-light">Edit</button>
-                    <button class="btn btn-light">Delete</button>
-                </div>
-              </div>
+            {% for review in product.review.all %}
+                 <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review.author.username }}</h5>
+                        <h6 class="card-subtitle mb-2 ">{{ review.title }}</h6>
+                        <p class="card-text">{{ review.description }}</p>
+                        <p class="card-text">{{ review.rating }}</p>
+                        {% if request.user == review.author %}
+                            <a href="{% url 'update-review' pk=review.id %}" class="btn btn-light">Edit</a>
+                            <a href="{% url 'delete-review' pk=review.id %}" class="btn btn-light">Delete</a>
+                        {% endif %}
+                    </div>
+                  </div>
+            {% endfor %}
         </div>
         <!-- end review -->
+
+         <!-- review modal-->
+        <div class="modal fade" id="staticBackdropReview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add review modal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form method="post" class="add-review-form" action="{% url 'add-review' product.id %}">
+                      {% csrf_token %}
+                      <input type="text" name="title" placeholder="Enter review title...">
+                      <input type="text" name="description" placeholder="Enter review description...">
+                      <input type="number" name="rating" placeholder="Enter review rating...">
+                      <button type="submit" class="btn btn-primary">Create</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- end review modaL -->
     </div>
     <!-- end content -->
     {% endblock content %}
