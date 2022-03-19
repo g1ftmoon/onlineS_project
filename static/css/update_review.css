@@ -1,0 +1,56 @@
+.update-review__block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-review__title {
+    font-size: 50px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.update-review__form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.update-review__form > input {
+    margin-bottom: 2%;
+    height: 50px;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: 0.8s;
+}
+
+.update-review__form > input::placeholder {
+    color: black;
+}
+
+.update-review__form > input:focus {
+    background-color: #212529;
+    color: white;
+    transition: 0.8s;
+}
+
+.update-review__form > button {
+    height: 40px;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: 0.8s;
+}
+
+.update-review__form > button:hover {
+    background-color: #212529;
+    color: rgb(1, 255, 255);
+    transition: 0.8s;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}

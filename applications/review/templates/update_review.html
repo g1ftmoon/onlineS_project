@@ -1,0 +1,17 @@
+{% extends 'home_page.html' %}
+{% load static %}
+    {% block css_links %}
+        <link rel="stylesheet" href="{% static 'css/update_review.css' %}">
+    {% endblock css_links %}
+    {% block content %}
+        <div class="update-review__block">
+            <h2 class="update-review__title">Update review form</h2>
+            <form method="post" class="update-review__form">
+                {% csrf_token %}
+                <input type="text" name="title" placeholder="Enter review title..." value="{{ review.title }}">
+                <input type="text" name="description" placeholder="Enter review description..." value="{{ review.description }}">
+                <input type="number" name="rating" placeholder="Enter review rating..." value="{{ review.rating }}">
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+    {% endblock %}

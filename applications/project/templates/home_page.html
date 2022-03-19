@@ -45,6 +45,9 @@
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Authorization</a></li>
                     </ul>
                 </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cart_detail' %}">Cart</a>
+                </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -73,6 +76,7 @@
                   <p class="card-text">{{ product.category.title }}</p>
                   <p class="card-text">{{ product.price }}$</p>
                   <a href="{% url 'product-detail' pk=product.id %}" class="btn btn-light">Detail</a>
+                  <a href="{% url 'cart_add' product.id %}">Add To Cart</a>
                 </div>
             </div>
             {% endfor %}
