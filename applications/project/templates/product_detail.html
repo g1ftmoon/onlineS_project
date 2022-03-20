@@ -8,7 +8,7 @@
      <div class="container">
         <div class="product-detail">
             <div class="product-detail__left">
-                <img src="{{ product.image.all.first.image.url}}" alt="" class="product-detail__left-img">
+                <img src="{{ product.product_image.all.first.image.url}}" alt="" class="product-detail__left-img">
             </div>
             <div class="product-detail__right">
                 <h2 class="right__title">{{ product.title }}</h2>
@@ -26,7 +26,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ product.image.all.first.image.url }}" class="d-block w-100 carousel-img" alt="...">
+                        <img src="{{ product.product_image.all.first.image.url }}" class="d-block w-100 carousel-img" alt="...">
                     </div>
                     {% for image in carousel_images %}
                     <div class="carousel-item">
